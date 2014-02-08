@@ -1,0 +1,18 @@
+<header class="section-mast">
+  <h4 data-bind="category.name"></h4>
+</header>
+<div class="scroll-container posts">
+  <div class="scroll-target">
+    <article data-foreach-post="posts" class="post" data-route="routes.posts[post]">
+      <header class="post-header">
+        <h4 class="post-title" data-bind="post.title"></h4>
+        <p class="post-subtitle" data-bind="post.subtitle"></p>
+      </header>
+      <footer>
+        <div class="post-image">
+          <img data-bind-src="post.image.medium.url" />
+        </div>
+      </footer>
+    </article>
+  </div>
+</div>

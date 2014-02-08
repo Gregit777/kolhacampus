@@ -1,0 +1,7 @@
+@mixin background-image($image, $retina: false){
+  @if($retina){
+    background-image: image-url("css/mobile/x2/#{$image}");
+  } @else {
+    background-image: image-url("css/mobile/x1/#{$image}");
+  }
+}

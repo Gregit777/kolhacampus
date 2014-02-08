@@ -1,0 +1,20 @@
+<header class="section-mast">
+  <h4 data-bind="program.name"></h4>
+  <h5>
+    <span data-bind="t.with | translate"></span>&nbsp;
+    <span data-bind="program.users | map 'fullname' | join ', '"></span>
+  </h5>
+</header>
+<div class="scroll-container">
+  <div class="scroll-target">
+    <div class="pull-to-refresh">
+      <div class="message">
+        <i class="icon-circle-arrow-up icon arrow arrow-down"></i>
+        <span></span>
+      </div>
+    </div>
+    <div class="tracklists-feed">
+      <section class="tracklist" data-bind-id="tracklist.id | prepend 'tracklist-'" data-foreach-tracklist="tracklists" data-partial="tracklists/_tracklist"></section>
+    </div>
+  </div>
+</div>

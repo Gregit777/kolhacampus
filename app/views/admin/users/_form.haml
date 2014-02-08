@@ -1,0 +1,25 @@
+= semantic_form_for [:admin, (@user || @account)] do |f|
+  = f.inputs 'Personal Details' do
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :first_name_en, :label => 'First name (English)'
+    = f.input :last_name_en, :label => 'Last name (English)'
+
+  - if f.object.provider == '106fm'
+    = f.inputs 'Account Details' do
+      = f.input :email
+      = f.input :password
+      = f.input :password_confirmation
+
+  - if current_user.is? :admin
+    = f.inputs 'Status & Permissions' do
+      = f.input :active
+      = f.input :status, :as => :radio, :collection => Status.values, :wrapper_html => {:class => 'inline'}
+      = f.input :roles, :as => :check_boxes, :collection => User.roles_list, :wrapper_html => {:class => 'inline'}
+
+  = f.inputs 'Public Details' do
+    = f.input :about, :as => :rich_text
+    = f.input :image, :hint => (f.template.image_tag(f.object.image.thumb.url) unless f.object.image.thumb.url.nil?)
+    = f.input :image_cache, :as => :hidden, :value => f.object.image.url
+
+  = f.actions

@@ -1,0 +1,104 @@
+a.button{
+  cursor: pointer;
+}
+
+body.active_admin p {
+  margin: 8px 0;
+}
+
+body.active_admin .inputs thead th{
+  background: transparent;
+  padding-left:10px;
+}
+
+.hidden{
+  display: none;
+}
+
+.inline .choices-group .choice {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.inline .choices-group .choice label{
+  font-weight: normal;
+}
+
+.inline .choices-group .choice input{
+  margin-right:3px;
+}
+
+.active_admin .datetime_select .fragment{
+  display: inline-block;
+}
+// redactor
+
+.redactor_box{
+  margin-left: 20% !important;
+  border: 1px solid #C9D0D6 !important;
+  border-radius: 3px;
+  width: 78% !important;
+}
+
+.redactor_editor ul{
+  list-style-type: disc !important;
+}
+
+.redactor_editor ol{
+  list-style-type: decimal !important;
+}
+
+.redactor_editor li{
+  padding: 0 !important;
+}
+
+// schedules form
+
+.schedule_programs_table tr th:first-child{
+  padding-left: 10px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.schedule_programs_table select{
+  max-width:130px;
+}
+
+// tracks form
+
+.tracks_table .row_actions td{
+  padding: 10px 15px;
+  text-align: center;
+  background-color: #eaeaea;
+}
+
+// feed
+
+ol.thread{
+  margin: 8px 0 !important;
+  background-color: #e1e1e1;
+  border:1px solid #d2d2d2 !important;
+}
+
+// login page
+
+.active_admin.logged_out .social_login{
+  margin: 30px 0 0;
+}
+
+.active_admin.logged_out .social_login h2{
+  margin-bottom: 13px;
+}
+
+.active_admin.logged_out .social_login a{
+  float: none !important;
+  margin: 0 !important;
+}
+
+form fieldset > ol > li fieldset ol li {
+  margin: 10px 0;
+}
+
+input[type="number"]{
+  max-width:250px;
+}

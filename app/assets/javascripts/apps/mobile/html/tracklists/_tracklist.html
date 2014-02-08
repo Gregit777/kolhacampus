@@ -1,0 +1,45 @@
+<header class="program" data-removeclass-nofeed="tracklist.feed_items.length">
+  <div class="info">
+    <div class="media">
+      <img data-bind-data-src="tracklist.program.image.small.url">
+    </div>
+    <div class="details">
+      <h1 data-bind="tracklist.program.name"></h1>
+      <h2>
+        <span data-bind="t.with | translate"></span>&nbsp;
+        <span data-bind="tracklist.program.users | map 'fullname' | join ', '"></span>
+      </h2>
+      <p class="start-time" data-bind="tracklist.start_time"></p>
+    </div>
+    <p class="podcasts" data-route="routes.programs[tracklist.program].tracklists">
+      <i class="fa fa-tasks"></i>
+      <strong data-bind="tracklist.program.tracklist_count"></strong>
+      <span data-bind="t.podcasts | translate"></span>
+    </p>
+    <ul class="semantic tags">
+      <li data-foreach-tag="tracklist.program.tag_list" data-bind="tag"></li>
+    </ul>
+  </div>
+</header>
+<article class="track" data-insertif="tracklist.feed_items.length | equals 1"></article>
+<article class="track" data-addclass-onair="track.on_air" data-addclass-active="track.active" data-foreach-track="tracklist.feed_items" data-bind-id="tracklist.id | append '-' | append track.id">
+  <div class="pos">
+    <header class="track-details">
+      <div class="media toggle-active">
+        <img data-bind-data-src="track.image" />
+      </div>
+      <div class="info">
+        <h1 data-bind="track.artist"></h1>
+        <h2 data-bind="track.track"></h2>
+      </div>
+    </header>
+    <ul class="track-feed">
+      <li data-foreach-feed_item="track.feed" class="track-feed-item">
+        <div data-partial="tracklists/_comment" data-renderif="feed_item.type | equals 'comment'" class="feed-item-partial"></div>
+        <div data-partial="tracklists/_image" data-renderif="feed_item.type | equals 'image'" class="feed-item-partial"></div>
+      </li>
+      <li class="add-comment" data-event-click="controller.showCommentForm" data-bind-id="tracklist.id | append '-' | append track.id "></li>
+    </ul>
+  </div>
+</article>
+<footer class="tracklist-footer" data-insertif="tracklist.feed_items.length | equals 0 | not"></footer>

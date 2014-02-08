@@ -1,0 +1,22 @@
+<nav>
+  <ul class="semantic">
+    <li data-foreach-link="links" class="nav-item">
+      <a data-route="link.route" data-addclass-active="link.active">
+        <i data-bind-class="link.icon | prepend 'fa '" data-insertif="link.icon"></i>&nbsp;
+        <span data-bind="link.label"></span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a data-bind-href="mailto">
+        <i class="fa fa-envelope"></i>&nbsp;
+        <span data-bind="t.nav.contact"></span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <div class="yes-no-checkbox" data-off-label="עב" data-on-label="EN">
+        <input id="locale-chooser" type="checkbox" name="locale" data-bind-checked="locale | equals 'en'" data-event-change="changeLocale" />
+        <label for="locale-chooser" data-off-label="עב" data-on-label="EN"></label>
+      </div>
+    </li>
+  </ul>
+</nav>

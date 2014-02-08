@@ -1,0 +1,16 @@
+<header class="section-mast">
+  <h4 data-bind="t.nav.library | translate"></h4>
+</header>
+
+<div class="scroll-container">
+  <ul class="alternating-list with-images semantic">
+    <li class="list-item" data-bind-id="program.id | prepend 'program-'" data-foreach-program="programs" data-event-click="onProgramClick | withArguments program">
+      <img class="item-image" data-bind-data-src="program.image.tiny.url" />
+      <h3 class="item-title" data-bind="program.name"></h3>
+      <h4 class="item-subtitle" data-bind="program.users | map 'fullname' | join ', '"></h4>
+      <a class="continue" data-route="routes.programs[program].tracklists">
+        <i class="fa fa-chevron-circle-left fa-3"></i>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,20 @@
+<section class="player">
+  <div class="player-controls">
+    <a class="control circle small favorite" data-addclass-disabled="mode | equals 'stream'" data-event-click="toggleFavorite">
+      <i class="fa" data-addclass-fa-star="favoriteTracklist | equals true" data-addclass-fa-star-o="favoriteTracklist | equals false"></i>
+    </a>
+    <a class="control circle small" data-addclass-disabled="mode | equals 'stream'" data-event-click="skipFive | withArguments 'back'">
+      <i class="fa fa-backward"></i>
+    </a>
+    <a class="control play circle large" data-event-click="playPause">
+      <i class="fa"
+         data-showif="loading | not"
+         data-addclass-fa-play="playing | not"
+         data-addclass-fa-pause="playing"></i>
+      <i class="fa fa-spinner fa-spin" data-showif="loading"></i>
+    </a>
+    <a class="control circle small" data-addclass-disabled="mode | equals 'stream'" data-event-click="skipFive | withArguments 'forward'">
+      <i class="fa fa-forward"></i>
+    </a>
+  </div>
+</section>

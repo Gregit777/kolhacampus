@@ -1,0 +1,10 @@
+<span class="circle tiny feed-item-icon toggle-active">
+  <i class="fa fa-comment"></i>
+</span>
+<div class="feed-item-content">
+  <span class="circle small">
+    <i class="fa fa-comment" data-insertif="feed_item.image | not"></i>
+    <img data-bind-src="feed_item.image" data-insertif="feed_item.image" />
+  </span>
+  <p class="message tool-tip" data-bind="feed_item.message"></p>
+</div>

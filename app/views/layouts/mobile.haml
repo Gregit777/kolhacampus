@@ -1,0 +1,44 @@
+!!!5
+%html
+  %head
+    %meta{:charset => 'utf-8'}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=0"}
+    %meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
+    %meta{:name => "format-detection", :content => "telephone=no"}
+    %title 106fm Radio
+    = stylesheet_link_tag "apps/mobile/app", :media => "screen"
+    = javascript_include_tag 'modernizr.custom'
+    = csrf_meta_tags
+
+  %body
+    %div.app
+      %section.main.slide
+        %header.app-mast
+          %div
+            %a.logo.rep{data:{route: 'routes.onair'}} 106fm
+            %a.menu-toggle{data: { event: {click: "toggleMenu" } } }
+              %i.fa.fa-bars
+
+        %div.app-content{data: {yield: 'main'}}
+        %footer.app-footer.slide
+          %div.app-footer-pos{data: {view: 'PlayerView'}}
+      %aside.app-nav.slide{data: {view: 'SidebarView'}}
+
+    :javascript
+      var data = {
+        current: {
+          program: #{render :template => 'api/mobile/v1/programs/show'},
+          tracklist: #{render :template => 'api/mobile/v1/tracklists/show'}
+        },
+        schedule: #{active_schedule.to_json},
+        tz_offset: #{Time.now.gmt_offset},
+        categories: #{@categories.to_json},
+        locale: '#{I18n.locale}'
+      };
+
+    = javascript_include_tag "apps/mobile/vendor"
+    = javascript_include_tag "apps/mobile/views_preloader"
+    = javascript_include_tag "apps/mobile/app"
+    :javascript
+      KolHacampus.set('data', data);
+      KolHacampus.run();

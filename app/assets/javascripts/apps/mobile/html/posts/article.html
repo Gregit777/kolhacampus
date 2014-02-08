@@ -1,0 +1,26 @@
+<div class="scroll-container show-post">
+  <div class="scroll-target">
+    <article class="post">
+      <header class="post-header">
+        <h4 class="post-title" data-bind="post.title"></h4>
+        <p class="post-subtitle" data-bind="post.subtitle"></p>
+      </header>
+      <div class="post-content">
+        <div class="post-body" data-bind="post.body | raw"></div>
+        <div class="post-social">
+          <div class="social-widget">
+            <iframe data-bind-src="post.like_url" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+          </div>
+          <div class="social-widget">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="KolHaCampus106">Tweet</a>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="post-image">
+          <img data-bind-src="post.image.medium.url" />
+        </div>
+      </footer>
+    </article>
+  </div>
+</div>

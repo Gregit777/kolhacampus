@@ -1,0 +1,60 @@
+= semantic_form_for [:admin, @feed] do |f|
+
+  = f.inputs "New Image" do
+    = f.input :new_feed_image, :as => :file, :label => 'Add Image'
+
+  - @feed.feed.each_with_index do |item, i|
+    - related_track = @feed.related_track(item['id'])
+    - section = related_track.nil? ? '#%s' % (i+1) : related_track['track']
+    = f.inputs section do
+      %li.input
+        %ol.thread
+          - item['feed'].each do |feed_item|
+            %li.input
+              - if feed_item['type'] == 'comment'
+                %input{type: 'text', readonly: true, value: [feed_item['user'] ? feed_item['user']['name'] : nil, feed_item['message']].compact.join(": ")}
+              - if feed_item['type'] == 'image'
+                %img{src: feed_item['image']}
+              %a.button{'data-action' => 'remove_row'} Remove
+              %input{type: 'hidden', name: 'feed[%s][feed][]' % item['id'], value: feed_item.to_json}
+        = f.input :new_feed_image, :as => :file, :label => 'Add Image', :input_html => {:id => nil, :name => 'feed[%s][image]' % item['id']}
+      /
+        %li.input
+          - if item['type'] == 'comment'
+            %input{type: 'text', readonly: true, value: [item['user'] ? item['user']['name'] : nil, item['message']].compact.join(": ")}
+            - if item['thread'] && item['thread'].any?
+              %ol.thread
+                - item['thread'].each do |t_item|
+                  %li.input
+                    %input{type: 'text', readonly: true, value: [t_item['user'] ? t_item['user']['name'] : nil, t_item['message']].compact.join(": ")}
+                    %a.button{'data-action' => 'remove_row'} Remove
+                    - t_item.each_pair do |k,v|
+                      %input{type: 'hidden', name: 'feed_items[%s][thread][][%s]' % [i,k], value: v}
+          - if item['type'] == 'image'
+            %img{src: item['image']}
+
+          %p
+            - item.each_pair do |k,v|
+              - next if k == 'thread'
+              %input{type: 'hidden', name: 'feed_items[%s][%s]' % [i,k], value: v}
+            %a.button{'data-action' => 'remove_row'} Remove
+
+  = f.actions
+
+:javascript
+  $(document).ready(function(){
+    $('[data-action=remove_row]').click(removeRow);
+  })
+
+  function removeRow(e){
+    var tgt = $(e.target);
+    var row = tgt.closest('li.input');
+    var parent = row.closest('ol.thread');
+    if(parent.length === 0){
+      parent = row.closest('fieldset.inputs');
+    }
+    row.remove();
+    if(parent.children('li.input').length === 0){
+      parent.remove();
+    }
+  }

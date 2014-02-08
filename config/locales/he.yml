@@ -1,0 +1,32 @@
+he:
+  nav:
+    title: "קול הקמפוס 106fm"
+    home: "הביתה"
+    updates: "רדיו"
+    library: "ספריית הפודקאסטים"
+    feed: "פיד"
+    onair_now: "עכשיו בשידור"
+    episodes: "פרקים להאזנה"
+    favorites: "מועדפים"
+    about: "אודות"
+    contact: "צרו קשר"
+    schedule: "לוח שידורים"
+
+  with: "עם"
+  podcasts: "פודקסטים"
+  broadcasters: "שדרנים"
+
+  ui:
+    send: "שליחה"
+    cancel: "ביטול"
+    close: "סגירה"
+
+  homepage:
+    headlines: "בשער"
+    today: "היום"
+    library: "ספריית הפודקאסטים"
+
+  forms:
+    comment:
+      placeholder: "ההודעה שלי... @my-twitter"
+      explanation: "עד 140 תווים. הוסיפו את שם המשתמש שלכם בטוויטר כדי לקבל mention אוטומטי בפיד של קול הקמפוס בטוויטר."

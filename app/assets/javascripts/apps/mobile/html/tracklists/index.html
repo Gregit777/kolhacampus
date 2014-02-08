@@ -1,0 +1,13 @@
+<header class="section-mast">
+  <h4 data-bind="program.name" data-route="routes.programs[program].tracklists"></h4>
+  <h5 data-bind="t.nav.episodes | translate"></h5>
+</header>
+
+<div class="scroll-container">
+  <ul class="alternating-list semantic">
+    <li class="list-item with-arrow" data-bind-id="tracklist.id | prepend 'tracklist-'" data-event-click="playTrack | withArguments tracklist.id" data-foreach-tracklist="tracklists" data-route="routes.programs[program].tracklists[tracklist]">
+      <h3 class="item-title" data-bind="tracklist.title"></h3>
+      <h4 class="item-subtitle" data-bind="tracklist.description | raw"></h4>
+    </li>
+  </ul>
+</div>

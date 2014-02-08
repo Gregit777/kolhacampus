@@ -1,0 +1,14 @@
+<form class="add-comment" data-event-submit="delegateEvent" data-controller-action="TracklistsController.addComment">
+  <div class="row">
+    <textarea name="comment" data-bind-placeholder="t.forms.comment.placeholder | translate" class="comment-field small-12 columns"></textarea>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <button class="button short small radius" type="submit" data-bind="t.ui.send | translate"></button>
+      <a data-event-click="toggleContainer" data-bind="t.ui.cancel | translate"></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns" data-bind="t.forms.comment.explanation | translate"></div>
+  </div>
+</form>

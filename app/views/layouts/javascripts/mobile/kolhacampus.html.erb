@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Javascripts/Mobile/Kolhacampus</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "javascripts/mobile/kolhacampus" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div data-yield="main"></div>
+
+<script type="text/javascript">
+  Javascripts::Mobile::Kolhacampus.run();
+</script>
+
+</body>
+</html>

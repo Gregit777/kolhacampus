@@ -1,0 +1,5 @@
+= semantic_form_for [:admin, @configuration] do |f|
+  - @config_items.each do |title, config_item|
+    = f.inputs do
+      = f.input :data, as: :serialized_rich_text, attr: {key: title}, label: title.dup
+  = f.actions

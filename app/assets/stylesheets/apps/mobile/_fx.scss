@@ -1,0 +1,103 @@
+/*
+.slide, .panel {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform .45s ease-in-out;
+  -moz-transition: -moz-transform .45s ease-in-out;
+  transition: transform .45s ease-in-out;
+  width: 100%;
+}
+
+.slide {
+
+  &.move-left {
+    @include transform(translate3d(-100%, 0, 0));
+  }
+
+  &.visible {
+    @include transform(translate3d(0, 0, 0));
+  }
+
+  &.move-up {
+    @include transform(translate3d(0, rem-calc(65px), 0));
+  }
+
+  &.move-right {
+    @include transform(translate3d(70%, 0, 0));
+  }
+
+  &.move-down {
+    @include transform(translate3d(0, 100%, 0));
+  }
+}
+
+.fx-move-to-left {
+  -webkit-animation: moveToLeft .45s ease-in-out both;
+  -moz-animation: moveToLeft .45s ease-in-out both;
+  animation: moveToLeft .45s ease-in-out both;
+}
+
+.fx-move-from-left {
+  -webkit-animation: moveFromLeft .45s ease-in-out both;
+  -moz-animation: moveFromLeft .45s ease-in-out both;
+  animation: moveFromLeft .45s ease-in-out both;
+}
+
+.fx-move-to-right {
+  -webkit-animation: moveToRight .45s ease-in-out both;
+  -moz-animation: moveToRight .45s ease-in-out both;
+  animation: moveToRight .45s ease-in-out both;
+}
+
+.fx-move-from-right {
+  -webkit-animation: moveFromRight .45s ease-in-out both;
+  -moz-animation: moveFromRight .45s ease-in-out both;
+  animation: moveFromRight .45s ease-in-out both;
+}
+
+@-webkit-keyframes moveToLeft {
+  to { -webkit-transform: translateX(-100%); }
+}
+@-moz-keyframes moveToLeft {
+  to { -moz-transform: translateX(-100%); }
+}
+@keyframes moveToLeft {
+  to { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes moveFromLeft {
+  from { -webkit-transform: translateX(-100%); }
+}
+@-moz-keyframes moveFromLeft {
+  from { -moz-transform: translateX(-100%); }
+}
+@keyframes moveFromLeft {
+  from { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes moveToRight {
+  to { -webkit-transform: translateX(100%); }
+}
+@-moz-keyframes moveToRight {
+  to { -moz-transform: translateX(100%); }
+}
+@keyframes moveToRight {
+  to { transform: translateX(100%); }
+}
+
+@-webkit-keyframes moveFromRight {
+  from { -webkit-transform: translateX(100%); }
+}
+@-moz-keyframes moveFromRight {
+  from { -moz-transform: translateX(100%); }
+}
+@keyframes moveFromRight {
+  from { transform: translateX(100%); }
+}*/

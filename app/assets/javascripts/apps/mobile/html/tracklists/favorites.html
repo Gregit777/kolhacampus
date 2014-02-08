@@ -1,0 +1,13 @@
+<header class="section-mast">
+  <h4 data-bind="t.nav.favorites | translate"></h4>
+</header>
+
+<div class="scroll-container">
+  <ul class="alternating-list with-images semantic">
+    <li class="list-item with-arrow" data-bind-id="tracklist.id | prepend 'tracklist-'" data-event-click="playTrack | withArguments tracklist.id" data-foreach-tracklist="tracklists" data-route="routes.programs[tracklist.program.id].tracklists[tracklist]">
+      <img class="item-image" data-bind-data-src="tracklist.program.image.tiny.url" />
+      <h3 class="item-title" data-bind="tracklist.title"></h3>
+      <h4 class="item-subtitle" data-bind="tracklist.description | raw"></h4>
+    </li>
+  </ul>
+</div>

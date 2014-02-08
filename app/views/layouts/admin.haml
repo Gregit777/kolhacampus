@@ -1,0 +1,11 @@
+!!!5
+%html
+  %head
+    %meta{:charset => 'utf-8'}
+    = stylesheet_link_tag 'active_admin', :media => 'screen'
+    = csrf_meta_tags
+
+  %body
+    = yield
+
+    =javascript_include_tag 'active_admin'

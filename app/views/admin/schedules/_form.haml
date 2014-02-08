@@ -1,0 +1,27 @@
+= semantic_form_for [:admin, @schedule] do |f|
+  = f.inputs do
+    = f.input :title
+    = f.input :description
+    = f.input :start_date, :labels => false
+    = f.input :end_date, :labels => false
+    = f.input :is_default, :label => 'Default Schedule'
+  = f.inputs do
+    %table.schedule_programs_table
+      %tr
+        %th &nbsp;
+        %th= t(:sunday)
+        %th= t(:monday)
+        %th= t(:tuesday)
+        %th= t(:wednesday)
+        %th= t(:thursday)
+        %th= t(:friday)
+        %th= t(:saturday)
+      - (0..23).each do |h|
+        %tr
+          %th= '%s:00' % h
+          - (1..7).each do |d|
+            - v = @schedule.configuration.blank? ? nil : @schedule.configuration[h.to_s][d.to_s]
+            %td= select_tag 'schedule[configuration][%s][%s]' % [h,d], options_for_select(@programs, v)
+  = f.actions do
+    = f.action :submit, :as => :input
+    = f.action :submit, :as => :input, :label => 'Duplicate' unless @schedule.new_record?

@@ -1,0 +1,531 @@
+.tracklists-feed {
+
+  .tracklist {
+    //padding: 0 0 rem-calc(53px);
+  }
+
+  .program {
+    padding: rem-calc(20px) 0;
+    margin: 0 auto rem-calc(53px);
+    position: relative;
+    min-height: rem-calc(213px);
+    background: image-url("css/mobile/snake-vertical-left.png") repeat-y center;
+
+    &.nofeed {
+      padding: rem-calc(20px) 0 rem-calc(53px);
+      margin: 0 auto;
+    }
+
+    .info {
+      position: relative;
+      z-index: 1;
+      width: rem-calc(288px);
+      min-height: rem-calc(111px);
+      background: $primary-color;
+      margin: 0 auto;
+      text-align: right;
+      font-size: rem-calc($rem-base - 4);
+      @include box-shadow(1px 1px 3px rgba(50,50,50,0.3));
+
+      * {
+        color: $body-bg;
+      }
+
+      .media {
+        width:100%;
+        height: rem-calc(111px);
+        margin-bottom: rem-calc(4px);
+        overflow: hidden;
+        img {
+          width:100%;
+        }
+      }
+
+      .details {
+        float: right;
+        width: rem-calc(180px);
+      }
+
+      h1, h2 {
+        font-size: inherit;
+        margin:0 rem-calc(8px) 0 0;
+        width: rem-calc(180px);
+      }
+
+      h1{
+        font-weight: bold;
+        margin-top: rem-calc(-2px);
+      }
+
+      h2{
+        margin-bottom: rem-calc(4px);
+      }
+
+      .start-time {
+        margin:0;
+        position: absolute;
+        top: rem-calc(80px);
+        right: rem-calc(6px);
+        font-size: rem-calc($rem-base);
+        @include text-shadow(1px 1px 3px rgba(50,50,50, 0.4));
+      }
+
+      .podcasts {
+        float: left;
+        margin: 0 0 rem-calc(6px) rem-calc(16px);
+        text-align: center;
+        line-height: 1.2;
+        font-size: inherit;
+
+        strong {
+          font-weight: normal;
+          margin-right: rem-calc(6px);
+        }
+        span {
+          display: block;
+        }
+      }
+
+      .tags {
+        clear: both;
+        background-color: #ce4d42;
+        height: rem-calc(24px);
+        overflow: hidden;
+        margin: 0 0 rem-calc(-4px);
+        padding: rem-calc(3px) rem-calc(6px);
+        line-height: 0;
+
+        li {
+          line-height: 1.2;
+          font-size: rem-calc($rem-base - 5);
+          display: inline-block;
+          background-color: $primary-color;
+          @include border-radius(8px);
+          padding: rem-calc(2px) rem-calc(8px);
+          color: $header-font-color;
+
+          & + li{
+            margin-right: rem-calc(4px);
+          }
+        }
+      }
+    }
+  }
+
+  .track {
+
+    margin: rem-calc(-11px) rem-calc(34px) 0;
+    padding:rem-calc(22px) 0;
+    min-height: rem-calc(106px);
+    position: relative;
+
+    &:before{
+      content: '';
+      display: block;
+      background: image-url("css/mobile/snake-horizontal.png") repeat-x;
+      height: 11px;
+      position: absolute;
+      top: 0;
+      right: 50px;
+      left: 50px;
+      z-index: 1;
+    }
+
+    &:after, .pos:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .track-details{
+      width: 100%;
+      position: relative;
+      z-index: 1;
+
+      &:after{
+        clear: both;
+        content: '';
+        display: table;
+      }
+
+      img {
+        width: rem-calc(68px);
+        height: rem-calc(68px);
+      }
+
+      h1 {
+        font-size: rem-calc($rem-base - 4);
+        margin: 0;
+        color: $primary-color;
+        font-weight: bold;
+      }
+
+      h2 {
+        font-size: rem-calc($rem-base - 4);
+        color: $primary-color;
+        font-weight: normal;
+      }
+    }
+
+    .pos {
+
+      &:before {
+        content: '';
+        position: absolute;
+        z-index: 0;
+        display: block;
+        width: 11px;
+        top: 53px;
+        bottom: 53px;
+      }
+    }
+
+    img {
+      border: rem-calc(4px) solid $body-bg;
+      @include box-shadow(1px 1px 2px rgba(50,50,50,0.3));
+    }
+
+    .track-feed {
+
+      position: absolute;
+      z-index: 10;
+      left:rem-calc(44px);
+      right:rem-calc(44px);
+      bottom:rem-calc(-5px);
+      margin: 0;
+      list-style: none;
+
+      .track-feed-item, .feed-item-partial {
+        display: inline-block;
+      }
+
+      .feed-item-icon {
+        color: $primary-color;
+        margin: 0 rem-calc(3px);
+      }
+
+      .feed-item-content, .add-comment {
+        display: none;
+      }
+
+      .feed-item-content {
+        position: relative;
+        padding-top: rem-calc(15px);
+
+        .circle {
+          color: $primary-color;
+          position: absolute;
+          top: 0;
+          z-index: 100;
+
+          img {
+            @include border-radius(50%);
+          }
+        }
+
+        .tool-tip {
+          position: relative;
+          background-color: $body-bg;
+          padding: rem-calc(5px);
+          margin: 0 rem-calc(40px);
+          @include border-radius(3px);
+          @include box-shadow(2px 2px 3px rgba(#cfcebc, 0.5));
+          font-size: 12px;
+        }
+      }
+    }
+
+    &:nth-child(odd){
+
+      background-image: image-url("css/mobile/snake-corner-rt.png"), image-url("css/mobile/snake-corner-rb.png");
+      background-position: right top, right bottom;
+      background-repeat: no-repeat;
+      text-align: right;
+
+      .pos {
+
+        &:before {
+          right: -1px;
+          background: image-url('css/mobile/snake-vertical-right.png') repeat-y 0 0;
+        }
+
+        .track-details {
+          margin-right: rem-calc(-22px);
+          float: right;
+
+          .media{
+            float: right;
+            margin-left: emCalc(13px);
+          }
+        }
+      }
+
+    }
+
+    &:nth-child(even){
+
+      background-image: image-url("css/mobile/snake-corner-lt.png"), image-url("css/mobile/snake-corner-lb.png");
+      background-position: left top, left bottom;
+      background-repeat: no-repeat;
+      text-align: left;
+
+      .pos {
+
+        &:before {
+          left: 0px;
+          background: image-url('css/mobile/snake-vertical-left.png') repeat-y 0 0;
+        }
+
+        .track-details {
+          margin-left: rem-calc(-22px);
+          float: left;
+
+          .media{
+            float: left;
+            margin-right: emCalc(13px);
+          }
+        }
+      }
+
+    }
+
+    &:first-of-type{
+      &:before{
+        right: 50%;
+        margin-right: 48px;
+      }
+
+      &:after{
+        content: '';
+        display: block;
+        width: 90px;
+        height: 53px;
+        background: image-url('css/mobile/snake-corner-rb-padded.png') no-repeat;
+        position: absolute;
+        right: 50%;
+        top: -42px;
+        margin-right: -42px;;
+      }
+    }
+
+    &:last-of-type {
+      &:after{
+        display: block;
+        height:11px;
+        background: image-url("css/mobile/snake-horizontal.png") repeat-x;
+        position: absolute;
+        bottom: 0;
+      }
+      &:nth-child(odd) {
+        &:after{
+          left:50%;
+          right:50px;
+          margin-left: 48px;
+        }
+
+        + .tracklist-footer:before{
+          background: image-url("css/mobile/snake-corner-lt.png") repeat-y center;
+          right: 50%;
+          margin-right: -48px;
+        }
+      }
+      &:nth-child(even){
+        &:after{
+          left:50px;
+          right:50%;
+          margin-right: 48px;
+        }
+
+        + .tracklist-footer:before{
+          background: image-url("css/mobile/snake-corner-rt.png") repeat-y center;
+          left: 50%;
+          margin-left: -48px;
+        }
+      }
+    }
+
+    &.onair {
+
+      .track-details {
+
+        img {
+          width: rem-calc(100px);
+          height: rem-calc(100px);
+          border-color: $primary-color;
+        }
+      }
+    }
+
+    &.active {
+
+      .track-details {
+        margin-bottom: rem-calc(10px);
+
+        img {
+          width: rem-calc(148px);
+          height: rem-calc(148px);
+        }
+      }
+
+      .track-feed {
+        clear: both;
+        position: relative;
+        z-index: 1;
+        left: 0;
+        right: 0;
+
+        .add-comment{
+          display: block;
+          background: #fff;
+          height: rem-calc(32px);
+          padding: 0 rem-calc(10px);
+          margin-bottom: rem-calc(10px);
+          border: 1px solid rgba(#ccccba, 0.5);
+          @include box-shadow(-1px -1px 2px rgba(#ccccba, 0.3));
+          @include border-radius(3px);
+
+          &:after{
+            font-family: FontAwesome;
+            content: "\f0e5";
+            color: #b3b3a3;
+            line-height: 1.6;
+          }
+        }
+
+        .track-feed-item, .feed-item-partial, .feed-item-content {
+          display: block;
+        }
+
+        .feed-item-icon {
+          display: none;
+        }
+
+        .track-feed-item + .add-comment {
+          margin-top: rem-calc(20px);
+        }
+
+        .circle.small{
+          font-size: 14px;
+          line-height: 1.8;
+        }
+
+        .tool-tip.image {
+          padding: 0;
+          background-color: transparent;
+          @include box-shadow(none);
+        }
+      }
+    }
+
+  }
+
+  .tracklist-footer{
+    position: relative;
+    height: rem-calc(11px);
+    background: image-url("css/mobile/snake-vertical-left.png") repeat-y center;
+    margin-top:42px;
+
+    &:before{
+      content: '';
+      display: block;
+      width:53px;
+      height: 53px;
+      position: absolute;
+      top: -53px;
+    }
+  }
+
+  .stub-track {
+    visibility: hidden;
+    margin-bottom: rem-calc(-42px);
+
+    &.track {
+      visibility: visible;
+      margin-bottom: 0;
+    }
+  }
+
+  .track.active:nth-child(even) .track-feed{
+
+    text-align: left;
+    direction: ltr;
+
+    .add-comment{
+      text-align: right;
+      margin-left: rem-calc(40);
+    }
+
+    .feed-item-content {
+
+      .circle {
+        left: rem-calc(-8px);
+      }
+
+      .tool-tip{
+        margin-right: 0;
+
+        &:before, &:after{
+          content: '';
+          display: block;
+          width: 0;
+          height: 0;
+          border-top: rem-calc(12px) solid rgba(50,50,50,.15);
+          border-left: rem-calc(20px) solid transparent;
+          position: absolute;
+          top: rem-calc(5px);
+          left: rem-calc(-20px);
+          @include transform(rotate(10deg));
+        }
+
+        &:after{
+          border-top: rem-calc(12px) solid $body-bg;
+          border-left: rem-calc(21px) solid transparent;
+          border-right: rem-calc(1px) solid $body-bg;
+          left: rem-calc(-19px);
+        }
+      }
+    }
+  }
+
+  .track.active:nth-child(odd) .track-feed{
+
+    text-align: right;
+
+    .add-comment{
+      text-align: left;
+      margin-right: rem-calc(40);
+    }
+
+    .feed-item-content {
+
+      .circle {
+        right: rem-calc(-8px);
+      }
+
+      .tool-tip{
+        margin-left: 0;
+
+        &:before, &:after{
+          content: '';
+          display: block;
+          width: 0;
+          height: 0;
+          border-top: rem-calc(12px) solid rgba(50,50,50,.15);
+          border-right: rem-calc(20px) solid transparent;
+          position: absolute;
+          top: rem-calc(5px);
+          right: rem-calc(-20px);
+          @include transform(rotate(350deg));
+        }
+
+        &:after{
+          border-top: rem-calc(12px) solid $body-bg;
+          border-right: rem-calc(21px) solid transparent;
+          border-left: rem-calc(1px) solid $body-bg;
+          right: rem-calc(-19px);
+        }
+      }
+    }
+  }
+
+}

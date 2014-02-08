@@ -1,0 +1,12 @@
+<header class="section-mast">
+  <h4 data-route="routes.programs[tracklist.program].tracklists">
+    <span data-bind="tracklist.program.name"></span>
+  </h4>
+  <h5 data-bind="tracklist.publish_at | formatDate"></h5>
+</header>
+
+<div class="scroll-container">
+  <div class="tracklists-feed">
+    <section class="tracklist" data-bind-id="tracklist.id | prepend 'tracklist-'" data-partial="tracklists/_tracklist"></section>
+  </div>
+</div>

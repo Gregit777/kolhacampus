@@ -1,0 +1,20 @@
+<section class="program-details">
+  <header>
+    <h1 class="program-name" data-bind="program.name"></h1>
+  </header>
+  <p class="program-desc" data-bind="program.description"></p>
+  <div class="program-users">
+    <article data-foreach-user="program.users" class="program-user">
+      <header>
+        <h3 class="program-user-name" data-bind="user.fullname"></h3>
+      </header>
+      <div class="program-user-about">
+        <img class="program-user-image" data-bind-src="user.image.small.url" />
+        <p data-bind="user.about"></p>
+      </div>
+    </article>
+  </div>
+  <footer>
+    <button class="button short small radius" type="submit" data-bind="t.ui.close | translate" data-event-click="toggleContainer"></button>
+  </footer>
+</section>

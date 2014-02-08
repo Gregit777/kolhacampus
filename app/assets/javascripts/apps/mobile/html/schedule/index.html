@@ -1,0 +1,19 @@
+<header class="section-mast">
+  <h4 data-bind="t.nav.schedule | translate"></h4>
+</header>
+
+<div class="schedule">
+  <ul class="weekdays semantic" data-event-click="changeDay">
+    <li class="weekday" data-addclass-active="weekday.viewIndex | equals today" data-foreach-weekday="weekdays | withIndex" data-bind-data-index="weekday.viewIndex" data-bind="weekday.day"></li>
+  </ul>
+  <div class="scroll-container">
+    <section class="daily-programs" data-addclass-active="weekday.viewIndex | equals today" data-foreach-weekday="weekdays | withIndex" data-bind-data-index="weekday.viewIndex">
+      <ul class="alternating-list semantic">
+        <li class="list-item" data-foreach-program="weekday.programs">
+          <h3 class="item-title" data-bind="program.name"></h3>
+          <h4 class="item-subtitle" data-bind="program.hour"></h4>
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>

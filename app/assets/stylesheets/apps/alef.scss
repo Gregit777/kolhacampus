@@ -1,0 +1,21 @@
+@font-face{
+  font-family: 'Alef';
+  src: asset-url('Alef-Bold.eot', 'font');
+  src: asset-url('Alef-Bold.eot?#iefix', 'font') format('embedded-opentype'),
+       asset-url('Alef-Bold.woff', 'font') format('woff'),
+       asset-url('Alef-Bold.ttf', 'font') format('truetype'),
+       asset-url('Alef-Bold.svg#alefbold', 'font') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alef';
+  src: asset-url('Alef-Regular.eot', 'font');
+  src: asset-url('Alef-Regular.eot?#iefix', 'font') format('embedded-opentype'),
+       asset-url('Alef-Regular.woff', 'font') format('woff'),
+       asset-url('Alef-Regular.ttf', 'font') format('truetype'),
+       asset-url('Alef-Regular.svg#alefregular', 'font') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

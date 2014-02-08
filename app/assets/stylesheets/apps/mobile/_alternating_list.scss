@@ -1,0 +1,73 @@
+.alternating-list {
+
+  .list-item {
+
+    padding: rem-calc(10px);
+    box-shadow: 0 1px 2px rgba($lighter-grey, 0.3);
+    position: relative;
+
+    &:nth-child(even){
+      background-color: $body-bg;
+    }
+
+    & + .list-item {
+      border-top: 1px solid rgba($lighter-grey, 0.2);
+    }
+
+    &.with-arrow{
+      &:before{
+        font-family: "FontAwesome";
+        content: "\f137";
+        display: block;
+        font-size: $rem-base + 6;
+        position: absolute;
+        left: rem-calc(10px);
+        top: rem-calc(10px);
+      }
+
+      .item-title, .item-subtitle {
+        margin-left: rem-calc(30);
+      }
+    }
+
+    .continue {
+      font-size: $rem-base + 6;
+      position: absolute;
+      left: rem-calc(10px);
+      top: rem-calc(10px);
+      color: $body-font-color;
+    }
+
+    &:after {
+      clear: both;
+      display: table;
+      content: '';
+    }
+
+    .item-title, .item-subtitle {
+      margin: 0;
+      padding: 0;
+      line-height: 1.2;
+      font-size: rem-calc(12);
+    }
+
+    .item-title {
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+  }
+
+  &.with-images .list-item {
+    .item-title, .item-subtitle {
+      margin-right: rem-calc(40);
+    }
+
+    .item-image {
+      float: right;
+      width: rem-calc(32);
+      height: rem-calc(32);
+      border: 2px solid #e0e0cc;
+    }
+  }
+}

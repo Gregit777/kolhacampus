@@ -1,0 +1,75 @@
+.yes-no-checkbox {
+  width: rem-calc(80);
+  height: rem-calc(26);
+  background: #e0e0cc;
+  position: relative;
+  @include border-radius(5px);
+  @include box-shadow(inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2));
+
+  &:before, &:after {
+    font-size: rem-calc(12);
+    line-height: rem-calc(26);
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(255,255,255,.15);
+    color: $body-font-color;
+    position: absolute;
+    z-index: 0;
+  }
+
+  &:before {
+    content: attr(data-on-label);
+    left: 10px;
+  }
+
+  &:after {
+    content: attr(data-off-label);
+    right: 10px;
+  }
+
+  input[type=checkbox] + label {
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    margin: 0;
+    z-index: 10;
+
+    &:after {
+      content: attr(data-off-label);
+      display: block;
+      margin: 0;
+      padding: 0;
+      font-size: rem-calc(12);
+      line-height: rem-calc(21);
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 1px 1px 0px rgba(255,255,255,.15);
+      width: rem-calc(34);
+      height: rem-calc(22);
+      position: absolute;
+      top: 2px;
+      left: 44px;
+      z-index: 1;
+
+      @include border-radius(5px);
+      @include box-shadow(1px 1px 3px 0px rgba(0,0,0,0.1));
+      @include background(linear-gradient(top, #c4c4b2 0%, #bbbbaa 40%, #b3b3a3 100%));
+      border: 1px solid #aeae9e;
+    }
+  }
+
+  input[type=checkbox] {
+    @include opacity(0.01);
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+
+    &:checked + label:after {
+      left: 2px;
+      content: attr(data-on-label);
+    }
+  }
+}

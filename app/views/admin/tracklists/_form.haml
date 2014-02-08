@@ -1,0 +1,48 @@
+= semantic_form_for [:admin, @tracklist] do |f|
+  = f.inputs do
+    = f.input :program
+    = f.input :description, :as => :string, label: 'Hebrew Description'
+    = f.input :description_en, :as => :string, label: 'English Description'
+    = f.input :publish_at, :as => :datetime
+    = f.input :status, :as => :select, :collection => Status.values, :include_blank => false
+
+  = f.inputs :name => 'Tracks' do
+    %ol
+      %li.optional.input.file
+        %label.label{:for => 'upload_from_csv'}= t('formtastic.label.upload_from_csv')
+        %input#upload_from_csv{:type => 'file'}
+    %hr/
+    %table.tracks_table
+      %thead
+        %tr
+          %th= t(:start_time)
+          %th= t(:track)
+          %th= t(:artist)
+          %th= t(:album)
+          %th= t(:label)
+          %th &nbsp;
+      %tbody
+        - @tracklist.tracks.each do |i, track|
+          %tr
+            - if track[:freetext].blank?
+              %td= text_field_tag 'tracklist[tracks][][start_time]', track['start_time']
+              %td= text_field_tag 'tracklist[tracks][][track]', track['track']
+              %td= text_field_tag 'tracklist[tracks][][artist]', track['artist']
+              %td= text_field_tag 'tracklist[tracks][][album]', track['album']
+              %td= text_field_tag 'tracklist[tracks][][label]', track['label']
+            - else
+              %td{:colspan => 5}= text_field_tag 'tracklist[tracks][][freetext]', track['freetext']
+            %td
+              %a.button{'data-action' => 'remove_row'} Remove
+      %tfoot
+        %tr.row_actions
+          %td{:colspan => 6}
+            %a.button{'data-action' => 'add_track'} Add Track
+            %a.button{'data-action' => 'add_text'} Add Free Text
+
+  = f.actions
+
+:javascript
+  $(document).ready(function(){
+    TracklistEditor.init();
+  });

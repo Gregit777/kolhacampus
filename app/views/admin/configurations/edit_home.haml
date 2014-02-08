@@ -1,0 +1,15 @@
+= semantic_form_for [:admin, @configuration] do |f|
+  - @config_items.each do |title, config_item|
+    = f.inputs title.capitalize do
+      - @meta_data[title].times do |i|
+        = f.inputs [title.dup.singularize, i+1].join(' ') do
+          - search_index = case title
+            - when 'today' then 'events'
+            - when 'tracklists' then 'tracklists'
+            - else nil
+          = f.input :data, as: :select2_autocomplete,
+                           attr: { key: title, field: 'id', index: i, search_index: search_index }, label: 'item'
+          = f.input :data, as: :serialized_hash_datetime,
+                           attr: { key: title, field: 'expires', index: i }, label: 'expires on'
+
+  = f.actions

@@ -1,0 +1,37 @@
+.schedule {
+
+  .weekdays {
+    position: fixed;
+    right:0;
+    left:0;
+    top: rem-calc(45);
+    height: rem-calc(25);
+    text-align: center;
+
+    .weekday {
+      display: inline-block;
+      width: (100% / 7);
+      background-color: $body-font-color;
+      color: $body-bg;
+
+      & + .weekday{
+        border-right:2px solid $body-bg;
+      }
+
+      &.active {
+        background-color: $primary-color;
+      }
+    }
+  }
+
+  .scroll-container{
+    top: rem-calc(70);
+  }
+
+  .daily-programs {
+
+    &:not(.active){
+      display: none;
+    }
+  }
+}

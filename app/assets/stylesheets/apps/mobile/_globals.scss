@@ -1,0 +1,99 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+html{
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html, body{
+  width:100%;
+  height: 100%;
+}
+
+body {
+  background-repeat: repeat;
+  overflow-x: hidden;
+  @include background-image('body_stripes.png', false);
+}
+
+textarea{
+  resize: none;
+}
+
+.rep{
+  direction: ltr;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.semantic{
+  list-style: none;
+  padding:0;
+  margin: 0;
+}
+
+.button.short {
+  padding: rem-calc(6) rem-calc(12);
+}
+
+.circle{
+  display: inline-block;
+  width: emCalc(30px);
+  height: emCalc(30px);
+  line-height: emCalc(30px);
+  text-align: center;
+  @include border-radius(50%);
+  @include box-shadow(0 1px 2px rgba(50,50,50,0.3));
+  background-color: $body-bg;
+  vertical-align: middle;
+  line-height: 1.6;
+
+  &.tiny {
+    width: rem-calc(21px);
+    height: rem-calc(21px);
+    font-size: rem-calc($rem-base - 4);
+    line-height: 1.8;
+  }
+  &.small {
+    width: rem-calc(26px);
+    height: rem-calc(26px);
+    font-size: rem-calc($rem-base);
+  }
+  &.medium {
+    width: rem-calc(30px);
+    height: rem-calc(30px);
+    font-size: rem-calc($rem-base + 2);
+    line-height: 1.7;
+  }
+  &.large {
+    width: rem-calc(40px);
+    height: rem-calc(40px);
+    font-size: rem-calc($rem-base + 6);
+    line-height: 1.7;
+  }
+  &.xlarge {
+    width: rem-calc(45px);
+    height: rem-calc(45px);
+    font-size: rem-calc($rem-base + 8);
+  }
+}
+
+.hide {
+  display: none;
+}
+
+form {
+  [type=submit] + a{
+    margin-right: emCalc(10px);
+  }
+}
+
+.content-block{
+  padding: rem-calc(15);
+}

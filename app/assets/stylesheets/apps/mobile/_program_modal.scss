@@ -1,0 +1,49 @@
+.app-footer {
+  .program-details{
+    position: absolute;
+    top: rem-calc(75);
+    left:0;
+    right:0;
+    bottom:0;
+    overflow: auto;
+    padding: rem-calc(8);
+
+    * {
+      font-size: rem-calc(12);
+      line-height: 1.2;
+    }
+
+    .program-name, .program-user-name{
+      padding: 0;
+      color: $primary-color;
+    }
+
+    .program-name{
+      font-size: rem-calc(16);
+    }
+
+    .program-user-name{
+      font-size: rem-calc(14);
+      font-weight: bold;
+      border-bottom: 1px solid #e9e9d4;
+      padding-bottom: rem-calc(4);
+    }
+
+    .program-user{
+      margin: rem-calc(10) 0 rem-calc(15);
+
+      &:after{
+        content: '';
+        display: table;
+        clear: both;
+      }
+    }
+
+    .program-user-image {
+      float: right;
+      margin: 0 0 rem-calc(5) rem-calc(8);
+      border: 2px solid $primary-color;
+    }
+
+  }
+}

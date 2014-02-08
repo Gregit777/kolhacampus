@@ -1,0 +1,72 @@
+.app-footer {
+  .player {
+    height: rem-calc(40);
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    text-align: center;
+    background-color: $body-bg;
+    border-bottom: 1px solid darken(#f2f2dc, 3%);
+
+    .fa-backward:before {
+      letter-spacing: 3px;
+    }
+
+    .fa-forward:before {
+      letter-spacing: -2px;
+    }
+
+    .fa-play:before {
+      letter-spacing: -4px;
+    }
+
+    .play {
+      border: 5px solid $body-bg;
+      color: $body-bg;
+      font-size: rem-calc(28);
+      line-height: 1.9;
+      background-color: $primary-color;
+      margin-top: rem-calc(-28);
+      width: rem-calc(60);
+      height: rem-calc(60);
+    }
+
+    .favorite {
+      position: absolute;
+      left: 0;
+      top:rem-calc(1);
+      color: $body-bg;
+      background-color: $body-font-color !important;
+      margin: 0 !important;
+    }
+
+    .player-controls {
+      text-align: center;
+      direction: ltr;
+      position: absolute;
+      top: rem-calc(3);
+      left: rem-calc(8);
+      right: rem-calc(8);
+      height: rem-calc(35);
+      z-index: 10;
+
+      .circle.small {
+        border: 3px solid $body-bg;
+        background-color: $primary-color;
+        color: $body-bg;
+        font-size: rem-calc(12);
+        line-height: 2;
+        margin: 0 rem-calc(8);
+        width: rem-calc(30);
+        height: rem-calc(30);
+
+      }
+
+    }
+
+    .disabled {
+      display: none;
+    }
+  }
+}

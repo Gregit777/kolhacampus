@@ -1,0 +1,6 @@
+= semantic_form_for [:admin, @configuration] do |f|
+  = f.inputs do
+    - @config_items.each do |title, value|
+      = f.input :data, as: :select2_serialized_multi, attr: title.to_sym, label: title.dup, collection: options_for_select(Category.all.collect{|cat| [cat.name, cat.id]}, value)
+
+  = f.actions

@@ -1,0 +1,168 @@
+.slide {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  @include transition(transform .45s ease-in-out);
+}
+
+.app {
+  position: absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  overflow: hidden;
+}
+
+.main, .app-nav{
+  position: absolute;
+  top: 0;
+  right:0;
+  bottom: 0;
+  left:0;
+}
+
+.main {
+  @include transform(translate3d(0, 0, 0));
+}
+
+.app-nav {
+  @include transform(translate3d(-100%, 0, 0));
+  background-color: rgba(lighten($body-bg, 3%),0.4);
+  .nav-item{
+    padding: rem-calc(5px) rem-calc(10px);
+    & + .nav-item {
+      border-top: 1px solid lighten($body-bg, 5%);
+    }
+
+    a {
+      color: $body-font-color;
+
+      &.active {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.app-content{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: rem-calc(40);
+  left: 0;
+  padding-top: rem-calc(45);
+}
+
+.app-mast{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: emCalc(45px);
+  background-color: $body-bg;
+
+  .logo{
+    width: 55px;
+    height: 45px;
+    @include background-image('logo.png', false);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 11;
+  }
+
+  .menu-toggle{
+    position: absolute;
+    left: rem-calc(8);
+    top: rem-calc(8);
+    z-index: 11;
+    color: $primary-color;
+    display: block;
+    width: 22px;
+    height: 26px;
+    font-size: 1.6rem;
+  }
+}
+
+.section-mast{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  right:rem-calc(55px);
+  left: rem-calc(55px);
+  padding: rem-calc(7px) 0;
+  height: rem-calc(45);
+
+  h4, h5{
+    color: $primary-color;
+    font-size: rem-calc(12px);
+    margin: 0;
+    padding: 0;
+  }
+
+  h4{
+    font-weight: bold;
+  }
+
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom:0;
+    right: rem-calc(-55px);
+    left: rem-calc(-55px);
+    height: rem-calc(1);
+    @include box-shadow(0 -2px 4px $body-bg, 0 1px 2px rgba(50,50,50,0.3));
+    z-index: 11;
+  }
+}
+
+.scroll-container {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: rem-calc(45);
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.app-footer{
+  position: absolute;
+  z-index: 1000;
+  top: 100%;
+  right:0;
+  bottom: -100%;
+  left:0;
+  background-color: $body-bg;
+
+  .app-footer-pos{
+    padding: rem-calc(50) rem-calc(8) 0;
+    position: absolute;
+    top:rem-calc(-40);
+    right:0;
+    bottom: 0;
+    left:0;
+  }
+
+  &.active {
+    @include transform(translate3d(0, -100%, 0));
+  }
+}
+
+.app.show-menu{
+  .main {
+    @include transform(translate3d(75%, 0, 0));
+  }
+  .app-nav {
+    @include transform(translate3d(-25%, 0, 0));
+  }
+}
